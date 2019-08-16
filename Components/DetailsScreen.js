@@ -10,12 +10,9 @@ class DetailsScreen extends Component {
     console.log(repoId)
     return (
       <ScrollView>
-        repoId : {repoId}
+        <Text>repoId : {repoId}</Text>
         <View>
-        
         </View>
-      
-      
       </ScrollView>
     )
   }
