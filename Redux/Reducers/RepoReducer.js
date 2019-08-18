@@ -5,6 +5,8 @@ export const repoReducer = (state = [], action) => {
         {...action},
         ...state
       ]
+    case 'SET_REPOS':
+      return action.repos
     default:
       return state
   }

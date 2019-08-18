@@ -1,16 +1,16 @@
 import {createStackNavigator} from 'react-navigation'
-import ListScreen from './Components/ListScreen'
-import DetailsScreen from './Components/DetailsScreen'
+import DetailsScreenContainer from './Containers/DetailsScreenContainer'
+import ListScreenContainer from './Containers/ListScreenContainer'
 
 export const AppNavigator = createStackNavigator(
   {
     List: {
-      screen: ListScreen,
+      screen: ListScreenContainer,
       navigationOptions: () => ({
         headerBackTitle: 'Repos'
       }),
     },
-    Details: DetailsScreen
+    Details: DetailsScreenContainer
   },
   {
     initialRouteName: 'List'

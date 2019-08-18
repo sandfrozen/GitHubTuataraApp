@@ -1,6 +1,13 @@
-export const addRepo = repo => (
+export const addRepo = context => (
   {
     type: 'ADD_REPO',
-    ...repo,
+    ...context
+  }
+)
+
+export const setRepos = repos => (
+  {
+    type: 'SET_REPOS',
+    repos,
   }
 );

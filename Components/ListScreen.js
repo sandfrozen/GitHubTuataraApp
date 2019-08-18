@@ -18,7 +18,6 @@ class ListScreen extends React.Component {
   
   state = {
     loading: true,
-    repos: [],
     
     query: 'react native',
     edited: false,
@@ -36,7 +35,8 @@ class ListScreen extends React.Component {
     const url = `https://api.github.com/search/repositories?q=${query.trim().split(' ').join('+')}`
     axios.get(url)
       .then((response) => {
-        this.setState({loading: false, repos: response.data.items})
+        this.props.setRepos(response.data.items)
+        this.setState({loading: false})
         this.props.navigation.setParams({count: response.data.items.length})
       })
       .catch((error) => {
@@ -49,7 +49,7 @@ class ListScreen extends React.Component {
     return (
       <View style={{flex: 1}}>
         <FlatList
-          data={this.state.repos}
+          data={this.props.repos}
           keyExtractor={(item, index) => index.toString()}
           ListHeaderComponent={
             <Fragment>
